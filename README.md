@@ -1,5 +1,5 @@
 ## Concept
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+![Concept](https://raw.githubusercontent.com/lugosidomotor/devops-task/master/misc/concept.png)
 
 ## ArgoCD
 ![ArgoCD](https://raw.githubusercontent.com/lugosidomotor/devops-task/master/misc/argo_poc.PNG)
