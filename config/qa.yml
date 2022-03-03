@@ -12,7 +12,7 @@ spec:
   template:
     spec:
       containers:
-        - image: ldomotor/helloworld:2e3dd87
+        - image: ldomotor/helloworld:5e9e7c4
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -30,6 +30,6 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: ldomotor/helloworld:teszt
+          image: ldomotor/helloworld:5e9e7c4
           ports:
             - containerPort: 8080
