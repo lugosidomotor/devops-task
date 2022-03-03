@@ -1,11 +1,16 @@
 ## Concept
 ![Concept](https://raw.githubusercontent.com/lugosidomotor/devops-task/master/misc/concept.png)
 
+⚠️ The config files should be in a separate repos
+
 ## ArgoCD
 ![ArgoCD](https://raw.githubusercontent.com/lugosidomotor/devops-task/master/misc/argo_poc.PNG)
 
 ## Docker repo
 https://hub.docker.com/repository/docker/ldomotor/helloworld
+
+## Github Workflows
+https://github.com/lugosidomotor/devops-task/actions
 
 ---------------------------------------------------
 # Formlabs DevOps home assignment
