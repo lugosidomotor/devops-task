@@ -1,3 +1,13 @@
+## Concept
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
+## ArgoCD
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
+## Docker repo
+https://hub.docker.com/repository/docker/ldomotor/helloworld
+
+---------------------------------------------------
 # Formlabs DevOps home assignment
 
 This repository contains a home assignment code for DevOps applicants for Formlabs.
