@@ -9,10 +9,7 @@ spec:
     - protocol: "TCP"
       port: 8080
   type: NodePort
-  template:
-    spec:
-      containers:
-        - image: ldomotor/helloworld:5e9e7c4
+
 ---
 apiVersion: apps/v1
 kind: Deployment
