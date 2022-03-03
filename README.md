@@ -2,7 +2,7 @@
 ![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
 
 ## ArgoCD
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+![ArgoCD](https://raw.githubusercontent.com/lugosidomotor/devops-task/master/misc/argo_poc.PNG)
 
 ## Docker repo
 https://hub.docker.com/repository/docker/ldomotor/helloworld
