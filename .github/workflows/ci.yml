@@ -12,7 +12,6 @@ on:
 jobs:
   Run-unit-tests:
     uses: ./.github/workflows/unit-tests.yml
-
         
   Docker-build-and-push:
     runs-on: ubuntu-latest
