@@ -47,13 +47,11 @@ jobs:
         
     - name: Update Kubernetes resources
       env:
-        NEW_VERSION:  "${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:${{ steps.vars.outputs.sha_short }}"
+        DOCKER_USERNAME: "${{ secrets.DOCKER_USERNAME }}"
+        NEW_VERSION: '${{ secrets.DOCKER_USERNAME }}\/${{ secrets.DOCKER_REPO }}:${{ steps.vars.outputs.sha_short }}'
       run: |
-       sudo snap install yq
        cd config
-       yq ".spec.template.spec.containers[0].image = \"$NEW_VERSION\"" ${{ github.event.inputs.choice }}.yml > ${{ github.event.inputs.choice }}_tmp.yml
-       rm ${{ github.event.inputs.choice }}.yml
-       mv ${{ github.event.inputs.choice }}_tmp.yml ${{ github.event.inputs.choice }}.yml
+       sed -i 's/'$DOCKER_USERNAME'.*/'$NEW_VERSION'/g' ${{ github.event.inputs.choice }}.yml
         
     - name: Commit files
       run: |
