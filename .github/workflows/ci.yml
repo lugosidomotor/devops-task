@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      choice:
+        type: choice
+        description: Select environment to deploy
+        options:
+        - dev
+        - qa
+jobs:
+  Run-unit-tests:
+    uses: ./.github/workflows/unit-tests.yml
+
+        
+  Docker-build-and-push:
+    runs-on: ubuntu-latest
+    needs: Run-unit-tests
+
+    steps:
+    - name: Check Out Repo
+      uses: actions/checkout@v2
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_TOKEN }}
+
+    - name: Set up Docker Buildx
+      id: buildx
+      uses: docker/setup-buildx-action@v1
+      
+    - name: Set short sha
+      id: vars
+      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:${{ steps.vars.outputs.sha_short }}
+        
+    - name: Update Kubernetes resources
+      env:
+        NEW_VERSION:  "${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:${{ steps.vars.outputs.sha_short }}"
+      run: |
+       sudo snap install yq
+       cd config
+       yq ".spec.template.spec.containers[0].image = \"$NEW_VERSION\"" ${{ github.event.inputs.choice }}.yml > ${{ github.event.inputs.choice }}_tmp.yml
+       rm ${{ github.event.inputs.choice }}.yml
+       mv ${{ github.event.inputs.choice }}_tmp.yml ${{ github.event.inputs.choice }}.yml
+        
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -am "Bump docker tag"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
