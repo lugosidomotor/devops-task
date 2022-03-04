@@ -1,7 +1,7 @@
 ## Concept
 ![Concept](https://raw.githubusercontent.com/lugosidomotor/devops-task/master/misc/concept.png)
 
-⚠️ The config files should be in a separate repos
+⚠️ The config files should be in separate repos
 
 ## ArgoCD
 ![ArgoCD](https://raw.githubusercontent.com/lugosidomotor/devops-task/master/misc/argo_poc.PNG)
