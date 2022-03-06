@@ -1,5 +1,6 @@
 ## Concept
 ⚠️ The config files should be in separate repos
+
 ![Concept](https://raw.githubusercontent.com/lugosidomotor/devops-task/master/misc/concept.png)
 
 ## Ingress
