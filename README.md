@@ -1,3 +1,5 @@
+[![CI](https://github.com/lugosidomotor/devops-task/actions/workflows/ci.yml/badge.svg)](https://github.com/lugosidomotor/devops-task/actions/workflows/ci.yml)
+
 ## Concept
 ⚠️ The config files should be in separate repos
 
