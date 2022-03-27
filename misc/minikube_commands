@@ -2,3 +2,4 @@
 #sudo apt-get install -y conntrack
 
 sudo minikube start --driver=none
+sudo minikube addons enable ingress
