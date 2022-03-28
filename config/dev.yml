@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: ldomotor/helloworld:c8ad3ea
+          image: ldomotor/helloworld:246fb52
           ports:
             - containerPort: 8080
