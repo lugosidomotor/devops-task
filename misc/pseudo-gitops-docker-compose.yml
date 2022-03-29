@@ -1,0 +1,21 @@
+version: "3.4"
+
+services:
+  helloworld:
+    image: ldomotor/helloworld
+    container_name: helloworld
+    restart: on-failure
+    ports:
+      - 8080:8080
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: on-failure
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30 --label-enable --cleanup
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
